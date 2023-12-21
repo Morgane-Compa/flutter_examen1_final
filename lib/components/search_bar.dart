@@ -17,7 +17,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
   String _query = '';
   List<String> filteredItems = [];
   List<String> searchresults = [];
-  bool sbHasFocus = false;
+  bool sbHasFocus = true;
   final TextEditingController _searchController = TextEditingController();
 
   var searchBarHasFocus = FocusNode();
@@ -52,6 +52,8 @@ class _SearchBarAppState extends State<SearchBarApp> {
 
   void updateSearchQuery(value) {
     _searchController.text = value;
+    searchBarHasFocus.requestFocus();
+    search(value);
   }
   
 
